@@ -158,7 +158,7 @@
 {
     //Bài 10
     console.log(`Bài 10`);
-    // //Cho một mảng các đối tượng nhân viên, mỗi đối tượng chứa thông tin về số công làm việc, số công đi làm muộn và mức lương của nhân viên.
+    //Cho một mảng các đối tượng nhân viên, mỗi đối tượng chứa thông tin về số công làm việc, số công đi làm muộn và mức lương của nhân viên.
     // Tính hiệu suất của mỗi nhân viên bằng cách chia số công làm việc cho mức lương,
     // sau đó tìm nhân viên có hiệu suất cao nhất và trả về thông tin của họ.
     const employees = [
@@ -179,4 +179,66 @@
     };
     findMaxPerforEmployee(employees);
 
+}
+
+{
+    //Bài 11
+    console.log(`Bài 11`);
+    // Cho một mảng các đối tượng nhân viên, mỗi đối tượng chứa thông tin về số công làm việc của nhân viên.
+    // Tạo một biểu đồ phân bố số công làm việc (histogram) trong đó mỗi mốc là số công làm việc,
+    // và số lượng nhân viên nằm trong mốc đó.
+    const employees = [
+        { id: 1, name: "John", workingDays: 20 },
+        { id: 2, name: "Jane", workingDays: 22 },
+        { id: 3, name: "Mark", workingDays: 20 },
+        { id: 4, name: "Sam", workingDays: 24 },
+        { id: 5, name: "Lucy", workingDays: 22 },
+    ];
+    const createEmployeeHistogram = (employees) => {
+        const histogram = {};
+        employees.forEach((employee) => {
+            const workingDays = employee.workingDays;
+            if (histogram[workingDays]){
+                histogram[workingDays]++;
+            }else {
+                histogram[workingDays] = 1;
+            };
+        });
+        console.log(histogram);
+    };
+    createEmployeeHistogram(employees);
+}
+
+{
+    //Bài 12
+    console.log(`Bài 12`);
+    // Cho một mảng các đối tượng nhân viên, mỗi đối tượng chứa thông tin về
+    // tên, email, số công làm việc, số công đi làm muộn, và mức lương của nhân viên.
+    // Tạo một danh sách các đối tượng mới trong đó mỗi đối tượng chứa tên nhân viên,
+    // email và thông tin tổng hợp về số công làm việc và đi làm muộn dưới dạng một object con.
+    const employees = [
+        { id: 1, name: "John", email: "john@example.com", workingDays: 22, lateDays: 2, salary: 2000 },
+        { id: 2, name: "Jane", email: "jane@example.com", workingDays: 20, lateDays: 0, salary: 2500 },
+        { id: 3, name: "Mark", email: "mark@example.com", workingDays: 25, lateDays: 1, salary: 3000 },
+    ];
+    const newArrayInfor = (arr) => {
+        const newArray = arr.map(employee => {
+           return {
+            name: employee.name,
+            email: employee.email,
+            workInfor: {
+                workingDays: employee.workingDays,
+                lateDays: employee.lateDays,
+            }
+           }
+        });
+        console.log(newArray);
+    };
+    newArrayInfor(employees);
+}
+
+{
+    //Bài 13
+    console.log(`Bài 13`);
+    
 }
