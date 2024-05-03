@@ -111,6 +111,23 @@
         console.log(maxSalary);
     }
     findMaxSalary(employees);
+    //method find: trả về kết quả là 1 phần tử thoả mãn điều kiện find
+    //cách khác
+    //1- lấy ra tất cả các mức lương với vị trí tương ứng
+    //2- tìm kiếm giá trị lớn nhất
+    //3- tìm kiếm vị trí của giá trị đó
+    //4- lấy thông tin nhân viên tương ứng vị trí
+    const findMaxSalary2 = (arr) => {
+        const listSalary = arr.map((item)=> item.salary)
+        const MAX = Math.max(...listSalary);
+        const indexOfMax = listSalary.findIndex((item)=>{
+            // method findIndex trả về vị trí của phần tử thoả mãn điều kiện
+            return item === MAX;
+        });
+        console.log(arr[indexOfMax]);
+    };
+    findMaxSalary2(employees);
+
 }
 
 {
@@ -167,12 +184,12 @@
         { id: 3, name: "Mark", workingDays: 20, lateDays: 1, salary: 3000 },
     ];
 
-    
+
     const findMaxPerforEmployee = (arr) => {
         let maxPerformEmployee = arr[0];
-        let calcMaxPerformEmployee = maxPerformEmployee.workingDays/maxPerformEmployee.salary;
+        let calcMaxPerformEmployee = maxPerformEmployee.workingDays / maxPerformEmployee.salary;
         arr.forEach(employee => {
-            let perform = employee.workingDays/employee.salary;
+            let perform = employee.workingDays / employee.salary;
             perform > calcMaxPerformEmployee ? maxPerformEmployee = employee : maxPerformEmployee;
         })
         console.log(maxPerformEmployee);
@@ -198,9 +215,9 @@
         const histogram = {};
         employees.forEach((employee) => {
             const workingDays = employee.workingDays;
-            if (histogram[workingDays]){
+            if (histogram[workingDays]) {
                 histogram[workingDays]++;
-            }else {
+            } else {
                 histogram[workingDays] = 1;
             };
         });
@@ -223,14 +240,14 @@
     ];
     const newArrayInfor = (arr) => {
         const newArray = arr.map(employee => {
-           return {
-            name: employee.name,
-            email: employee.email,
-            workInfor: {
-                workingDays: employee.workingDays,
-                lateDays: employee.lateDays,
+            return {
+                name: employee.name,
+                email: employee.email,
+                workInfor: {
+                    workingDays: employee.workingDays,
+                    lateDays: employee.lateDays,
+                }
             }
-           }
         });
         console.log(newArray);
     };
@@ -240,5 +257,45 @@
 {
     //Bài 13
     console.log(`Bài 13`);
-    
+    // Quản lý danh sách công việc
+
+    // Yêu cầu:
+    //     1. Viết hàm thực thi thêm một công việc mới
+    //     2. Viết hàm đánh dấu một hoặc nhiều công việc hoàn thành
+    //     3. Viết hàm sắp xếp các công việc theo alphabet của tên công việc theo hai chiều A -> Z, Z -> A
+
+    let tasks = [
+        { name: "Hoàn thành bài tập JavaScript", description: "Làm xong bài tập về Array và Object", completed: false },
+        { name: "Đọc sách", description: "Đọc xong chương 3", completed: true },
+        { name: "Đi mua hàng", description: "Mua thêm thức ăn cho tuần", completed: false }
+    ];
+
 }
+
+console.log('===SPREAD AND REST===');
+const arrNumber = [1, 2, 3, 4, 5];
+const arr = [...arrNumber];
+console.log(arr);
+
+const student = {
+    name: 'Thuan',
+    eat: 'vegetable'
+}
+
+const listStudent = { ...student };
+console.log(listStudent);
+
+console.log('=====REST====');
+//in ra hết tất cả các giá trị được truyền vào trong tham số của hàm testRest
+function testRest(index1, index2, ...args) {
+    console.log(args);
+}
+
+testRest(1, 2, 3, 4, 5);
+
+console.log('===DESTRUCTURING===');
+
+const cars = ["BMW","Volvo","Saab","Ford","Fiat","Audi"];
+cars.map((item) => {
+    console.log(item);
+});

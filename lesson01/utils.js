@@ -47,3 +47,12 @@ const  student = {
 student.name hoặc student['name']
 
 */
+
+//Spead & rest Operator
+/*
+SPEAD là trải phẳng tức là lấy hết toàn bộ dữ liệu ra bên ngoài
+
+- Cả hai kĩ thuật này đều dùng chung 1 cú pháp là sử dụng dấu 3 chấm (...)
+trước dữ liệu Array hoặc Object hoặc Set
+NHƯNG kĩ thuật này sẽ luôn trả về kết quả là các giá trị bên trong của dữ liệu
+*/
