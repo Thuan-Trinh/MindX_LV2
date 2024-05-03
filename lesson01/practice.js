@@ -102,6 +102,7 @@
         { id: 1, name: "John", salary: 2000 },
         { id: 2, name: "Jane", salary: 4000 },
         { id: 3, name: "Mark", salary: 3000 },
+        { id: 3, name: "John", salary: 4000 },
     ];
     const findMaxSalary = (arr) => {
         let maxSalary = arr[0];
@@ -111,6 +112,7 @@
         console.log(maxSalary);
     }
     findMaxSalary(employees);
+
     //method find: trả về kết quả là 1 phần tử thoả mãn điều kiện find
     //cách khác
     //1- lấy ra tất cả các mức lương với vị trí tương ứng
@@ -118,13 +120,17 @@
     //3- tìm kiếm vị trí của giá trị đó
     //4- lấy thông tin nhân viên tương ứng vị trí
     const findMaxSalary2 = (arr) => {
-        const listSalary = arr.map((item)=> item.salary)
-        const MAX = Math.max(...listSalary);
-        const indexOfMax = listSalary.findIndex((item)=>{
-            // method findIndex trả về vị trí của phần tử thoả mãn điều kiện
+        const listSalary = arr.map((item) => item.salary)
+        const MAX = Math.max(...listSalary); //Math.max tìm ra giá trị lớn nhất trong mảng các phần tử
+        const firstMaxSalary = listSalary.findIndex((item) => {
             return item === MAX;
         });
-        console.log(arr[indexOfMax]);
+        console.log(arr[firstMaxSalary]);
+        const listOfMax = arr.filter((item) => {
+            // method findIndex trả về vị trí của phần tử thoả mãn điều kiện
+            return item.salary === MAX;
+        });
+        console.log(listOfMax);
     };
     findMaxSalary2(employees);
 
@@ -143,11 +149,21 @@
     const findHardWorkingEmployee = (arr) => {
         let hardWorkingEmployee = arr[0];
         arr.forEach(employee => {
-            employee.workingDays > hardWorkingEmployee.workingDays ? hardWorkingEmployee = employee : hardWorkingEmployee
+            employee.workingDays - employee.lateDays > hardWorkingEmployee.workingDays - hardWorkingEmployee.lateDays ? hardWorkingEmployee = employee : hardWorkingEmployee
         })
         console.log(`Nhân viên làm việc chăm chỉ nhất là: `, hardWorkingEmployee);
     };
     findHardWorkingEmployee(employees);
+
+    const hardWorkingEmployee8 = (arr) => {
+        const listWorked = arr.map((item) => {
+            return item.workingDays - item.lateDays;
+        });
+        const Max_worked = Math.max(...listWorked);
+        const employeeMaxWorked = arr.find(item => (item.workingDays - item.lateDays) === Max_worked);//tương tự nếu cần trả về tất cả các phần tử có giá trị bằng nhau và bằng max thì thay find bằng filter
+        console.log(employeeMaxWorked);
+    };
+    hardWorkingEmployee8(employees);
 }
 
 {
@@ -170,6 +186,17 @@
     }
     const groupedEmployees = groupEmployeesByName(employees);
     console.log(groupedEmployees);
+
+    const newObject = {};
+    employees.forEach((employee)=>{
+        if(!newObject[employee.name]){
+            newObject[employee.name] = [];
+            newObject[employee.name].push(employee);
+        }else {
+            newObject[employee.name].push(employee);
+        }
+    });
+    console.log(newObject);
 }
 
 {
@@ -184,7 +211,7 @@
         { id: 3, name: "Mark", workingDays: 20, lateDays: 1, salary: 3000 },
     ];
 
-
+//Cách 1:
     const findMaxPerforEmployee = (arr) => {
         let maxPerformEmployee = arr[0];
         let calcMaxPerformEmployee = maxPerformEmployee.workingDays / maxPerformEmployee.salary;
@@ -195,6 +222,16 @@
         console.log(maxPerformEmployee);
     };
     findMaxPerforEmployee(employees);
+//Cách 2:
+    const findMaxPerform = (arr) => {
+        const employeePerform = arr.map((employee) => {
+            return employee.workingDays/employee.salary;
+        });
+        const maxPerform = Math.max(...employeePerform);
+        const maxEmployeePerform = arr.find((item) => item.workingDays/item.salary === maxPerform);
+        console.log(maxEmployeePerform);
+    };
+    findMaxPerform(employees);
 
 }
 
@@ -295,7 +332,7 @@ testRest(1, 2, 3, 4, 5);
 
 console.log('===DESTRUCTURING===');
 
-const cars = ["BMW","Volvo","Saab","Ford","Fiat","Audi"];
+const cars = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"];
 cars.map((item) => {
     console.log(item);
 });
