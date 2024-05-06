@@ -1,0 +1,51 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.card .image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 8px;
+}
+.card img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.tag {
+    color: red;
+    background-color: antiquewhite;
+}
+
+.name {
+    font-weight: 900;
+    font-size: 28px;
+}
+
+.detail {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.detail div {
+    width: 50%;
+    border-radius: 4px;
+    padding: 8px 8px;
+    text-align: center;
+}
+.detail div:first-child{
+    color: white;
+    background-color: green;
+}
+.detail div:last-child{
+    color: white;
+    background-color: palevioletred;
+}

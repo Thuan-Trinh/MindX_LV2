@@ -1,4 +1,5 @@
-import Card from './Card.jsx'
+import './App.css';
+import Card from './Card.jsx';
 
 function App() {
   return (
@@ -9,6 +10,6 @@ function App() {
       <Card name="Hang" age="29" />
     </div>
   )
-}
+};
 
 export default App;
