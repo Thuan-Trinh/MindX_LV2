@@ -9,14 +9,3 @@ let resultCer = calcCerSquare(edge);
 console.log(resultPer, resultArea, resultCer);
 
 
-const arrNumber = [1, 2 ,3 ,4 ,5];
-const arr = [...arrNumber];
-console.log(arr);
-
-const  student = {
-    name: 'Thuan',
-    eat: 'vegetable'
-}
-
-const listStudent = {...student};
-console.log(listStudent);

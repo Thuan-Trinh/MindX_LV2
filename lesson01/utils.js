@@ -55,4 +55,14 @@ SPEAD là trải phẳng tức là lấy hết toàn bộ dữ liệu ra bên ng
 - Cả hai kĩ thuật này đều dùng chung 1 cú pháp là sử dụng dấu 3 chấm (...)
 trước dữ liệu Array hoặc Object hoặc Set
 NHƯNG kĩ thuật này sẽ luôn trả về kết quả là các giá trị bên trong của dữ liệu
+
+REST: trải dấu 3 chám ở trước tham số trong function
+-> có ý nghĩa là truyền vô hạn tham số vào function
+-> kết quả là 
+*/
+
+/*
+DESTRUCTURING: phá cấu trúc dữ liệu
+
+
 */
