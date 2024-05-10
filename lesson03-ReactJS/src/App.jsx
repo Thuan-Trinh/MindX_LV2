@@ -3,11 +3,15 @@ import Card from './Card.jsx';
 
 function App() {
   return (
-    <div className='app'>
+    <div className='listCard'>
       <h1>Hello World</h1>
-      <Card name="Thuan" age="25" />
-      <Card name="Thuy" age="22" />
-      <Card name="Hang" age="29" />
+      {/* vừa là thẻ mở vừa là thẻ đóng */}
+      <Card name='Thuan' age={22} sayHello={<h1>Hello</h1>}>
+        <p>Hiiii</p>
+        <button></button>
+      </Card>
+      <Card name='Thuy' age={25} />
+      <Card name='Banh Bao' age='1 month' />
     </div>
   )
 };
