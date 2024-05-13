@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import './Card.css';
 
 const Card = (props) => {
+    const [count, setCount] = useState(0);
     const onCLick = () => {
-        alert(`Bạn vừa click vào ${props.name}`);
-    }
+        setCount(count +1 );
+    };
     return (
         //Chỉ được trả về 1 thẻ duy nhất, trong thẻ có thẻ chứ không được tách thành 2 thẻ riêng
         <div className="card">

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './Card.css';
 
 //Truyền tham số gì cũng được
@@ -5,6 +6,16 @@ import './Card.css';
 //nếu như sử dụng theo hrml là lồng thẻ vào tỏng thẻ
 //Truyền element bthg
 const Card = (props) => {
+    const [count, setCount] = useState(0);
+    const addPlus = () => {
+        setCount(count + 1);
+    };
+    const minusItem = () => {
+        setCount(count - 1);
+    };
+    const [person, setPerson] = useState({
+        name: "thuan"
+    })
     console.log(props);
     return (
         //Chỉ được trả về 1 thẻ duy nhất, trong thẻ có thẻ chứ không được tách thành 2 thẻ riêng
@@ -16,9 +27,19 @@ const Card = (props) => {
         }}
         >
             {props.sayHello}
-            <div className="name">Name: {props.name}</div>
+            <div className="name">Name: {person.name}</div>
             <div className="age">Age: {props.age}</div>
-            {props.children}
+            <br />
+            <span>Đếm: {count}</span>
+            <br />
+            <br />
+            <button onClick={addPlus}>Plus</button>
+            <button onClick={
+                ()=>{
+                    person.name = 'Thuy';
+                    setPerson({...person});
+                }
+            }>update name</button>
         </div>
     );
 };
