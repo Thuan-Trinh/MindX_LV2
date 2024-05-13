@@ -14,6 +14,7 @@ import png011 from "./assets/011.png"
 import png012 from "./assets/012.png"
 
 import Card from './Card.jsx'
+import Modal from '../src/modal/Modal.jsx'
 
 function App() {
   const [image001, setImage001] = useState({
@@ -48,14 +49,35 @@ function App() {
     cardClass2: '',
     age: 11,
   });
+
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className='listCard'>
+      {showModal &&
+        <Modal
+          handleClose={() => {
+            setShowModal(false);
+          }}
+        >
+          <img src={image001.image} alt="" />
+          <p>{image001.name}</p>
+          <p>{image001.cardClass}</p>
+        </Modal>
+      }
+      {/* khi click vào btn thì sẽ đổi showModal thành true */}
+      <button
+        onClick={() => {
+          setShowModal(true);
+        }
+        }
+      >Click Modal</button>
+
+      {/* 
       <Card image={image001.image} tag={image001.tag} name={image001.name} cardClass={image001.cardClass} cardClass2={image001.cardClass2} age={image001.age} />
       <Card image={image002.image} tag={image002.tag} name={image002.name} cardClass={image002.cardClass} cardClass2={image002.cardClass2} age={image002.age} />
       <Card image={image003.image} tag={image003.tag} name={image003.name} cardClass={image003.cardClass} cardClass2={image003.cardClass2} age={image003.age} />
       <Card image={image004.image} tag={image003.tag} name={image004.name} cardClass={image004.cardClass} cardClass2={image004.cardClass2} age={image004.age} />
-    
-      {/* <Card image={png005} tag="#00005" name="Charmeleon" cardClass='Fire' age={22} />
+      <Card image={png005} tag="#00005" name="Charmeleon" cardClass='Fire' age={22} />
       <Card image={png006} tag="#00006" name="Charizard" cardClass='Fire' cardClass2="Flying" age={14} />
       <Card image={png007} tag="#00007" name="Squirtle" cardClass='Water' age={36} />
       <Card image={png008} tag="#00008" name="Wartortle" cardClass='Water' age={19} />
@@ -63,7 +85,7 @@ function App() {
       <Card image={png010} tag="#00010" name="Caterpie" cardClass='Bug' age={25} />
       <Card image={png011} tag="#00011" name="Metapod" cardClass='Bug' age={10} />
       <Card image={png012} tag="#00012" name="Butterfree" cardClass='Bug' cardClass2="Flying" age={8} /> */}
-    </div>
+    </div >
   )
 }
 
