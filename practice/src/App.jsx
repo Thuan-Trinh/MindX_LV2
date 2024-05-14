@@ -50,33 +50,79 @@ function App() {
     age: 11,
   });
 
+  const [selectedCard, setSelectedCard] = useState(null);
   const [showModal, setShowModal] = useState(false);
+
+  const handleImageClick = (cardInfo) => {
+    // Lưu thông tin của thẻ được click vào biến state selectedCard
+    setSelectedCard(cardInfo);
+    // Hiển thị modal
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    // Ẩn modal
+    setShowModal(false);
+    // Đặt lại selectedCard về null
+    setSelectedCard(null);
+  };
+
   return (
     <div className='listCard'>
-      {showModal &&
+      {showModal && selectedCard &&
         <Modal
-          handleClose={() => {
-            setShowModal(false);
-          }}
+          handleClose={handleCloseModal}
         >
-          <img src={image001.image} alt="" />
-          <p>{image001.name}</p>
-          <p>{image001.cardClass}</p>
+          <div className="card-content">
+            <img src={selectedCard.image} alt={selectedCard.tag} />
+            <p>{selectedCard.name}</p>
+            <div className="detail">
+              <span>{selectedCard.cardClass}</span>
+              {selectedCard.cardClass2 && <span>{selectedCard.cardClass2}</span>}
+            </div>
+          </div>
         </Modal>
       }
       {/* khi click vào btn thì sẽ đổi showModal thành true */}
-      <button
-        onClick={() => {
-          setShowModal(true);
-        }
-        }
-      >Click Modal</button>
+      <Card
+        handleOpen={() => handleImageClick(image001)}
+        image={image001.image}
+        tag={image001.tag}
+        name={image001.name}
+        cardClass={image001.cardClass}
+        cardClass2={image001.cardClass2}
+        age={image001.age}
+      />
 
+      <Card
+        handleOpen={() => handleImageClick(image002)}
+        image={image002.image}
+        tag={image002.tag}
+        name={image002.name}
+        cardClass={image002.cardClass}
+        cardClass2={image002.cardClass2}
+        age={image002.age}
+      />
+
+      <Card
+        handleOpen={() => handleImageClick(image003)}
+        image={image003.image}
+        tag={image003.tag}
+        name={image003.name}
+        cardClass={image003.cardClass}
+        cardClass2={image003.cardClass2}
+        age={image003.age} />
+
+      <Card
+        handleOpen={() => handleImageClick(image004)}
+        image={image004.image}
+        tag={image003.tag}
+        name={image004.name}
+        cardClass={image004.cardClass}
+        cardClass2={image004.cardClass2}
+        age={image004.age}
+      />
       {/* 
-      <Card image={image001.image} tag={image001.tag} name={image001.name} cardClass={image001.cardClass} cardClass2={image001.cardClass2} age={image001.age} />
-      <Card image={image002.image} tag={image002.tag} name={image002.name} cardClass={image002.cardClass} cardClass2={image002.cardClass2} age={image002.age} />
-      <Card image={image003.image} tag={image003.tag} name={image003.name} cardClass={image003.cardClass} cardClass2={image003.cardClass2} age={image003.age} />
-      <Card image={image004.image} tag={image003.tag} name={image004.name} cardClass={image004.cardClass} cardClass2={image004.cardClass2} age={image004.age} />
       <Card image={png005} tag="#00005" name="Charmeleon" cardClass='Fire' age={22} />
       <Card image={png006} tag="#00006" name="Charizard" cardClass='Fire' cardClass2="Flying" age={14} />
       <Card image={png007} tag="#00007" name="Squirtle" cardClass='Water' age={36} />
