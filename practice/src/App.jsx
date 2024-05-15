@@ -1,54 +1,56 @@
 import { useState } from 'react';
 import './App.css';
-import png001 from "./assets/001.png"
-import png002 from "./assets/002.png"
-import png003 from "./assets/003-Gmax.png"
-import png004 from "./assets/004.png"
-import png005 from "./assets/005.png"
-import png006 from "./assets/006.png"
-import png007 from "./assets/007.png"
-import png008 from "./assets/008.png"
-import png009 from "./assets/009.png"
-import png010 from "./assets/010.png"
-import png011 from "./assets/011.png"
-import png012 from "./assets/012.png"
+import cardDetail from './cardInfor';
+// import png001 from "./assets/001.png"
+// import png002 from "./assets/002.png"
+// import png003 from "./assets/003-Gmax.png"
+// import png004 from "./assets/004.png"
+// import png005 from "./assets/005.png"
+// import png006 from "./assets/006.png"
+// import png007 from "./assets/007.png"
+// import png008 from "./assets/008.png"
+// import png009 from "./assets/009.png"
+// import png010 from "./assets/010.png"
+// import png011 from "./assets/011.png"
+// import png012 from "./assets/012.png"
 
-import Card from './Card.jsx'
-import Modal from '../src/modal/Modal.jsx'
+import Card from './Card'
+import Modal from '../src/modal/Modal'
 
 function App() {
-  const [image001, setImage001] = useState({
-    image: png001,
-    tag: "#00001",
-    name: "Bulbasaur",
-    cardClass: 'Grass',
-    cardClass2: 'Poison',
-    age: 15,
-  });
-  const [image002, setImage002] = useState({
-    image: png002,
-    tag: "#00002",
-    name: "Ivysaur",
-    cardClass: 'Grass',
-    cardClass2: 'Poison',
-    age: 22,
-  });
-  const [image003, setImage003] = useState({
-    image: png003,
-    tag: "#00003",
-    name: "Venusaur",
-    cardClass: 'Grass',
-    cardClass2: 'Poison',
-    age: 30,
-  });
-  const [image004, setImage004] = useState({
-    image: png004,
-    tag: "#00004",
-    name: "Charmander",
-    cardClass: 'Fire',
-    cardClass2: '',
-    age: 11,
-  });
+  const [cards] = useState(cardDetail);
+  // const [image001, setImage001] = useState({
+  //   image: png001,
+  //   tag: "#00001",
+  //   name: "Bulbasaur",
+  //   cardClass: 'Grass',
+  //   cardClass2: 'Poison',
+  //   age: 15,
+  // });
+  // const [image002, setImage002] = useState({
+  //   image: png002,
+  //   tag: "#00002",
+  //   name: "Ivysaur",
+  //   cardClass: 'Grass',
+  //   cardClass2: 'Poison',
+  //   age: 22,
+  // });
+  // const [image003, setImage003] = useState({
+  //   image: png003,
+  //   tag: "#00003",
+  //   name: "Venusaur",
+  //   cardClass: 'Grass',
+  //   cardClass2: 'Poison',
+  //   age: 30,
+  // });
+  // const [image004, setImage004] = useState({
+  //   image: png004,
+  //   tag: "#00004",
+  //   name: "Charmander",
+  //   cardClass: 'Fire',
+  //   cardClass2: '',
+  //   age: 11,
+  // });
 
   const [selectedCard, setSelectedCard] = useState(null);
   const [showModal, setShowModal] = useState(false);
@@ -83,8 +85,21 @@ function App() {
           </div>
         </Modal>
       }
+      {cards.map((item) => (
+        <Card
+          key={item.tag}
+          handleOpen={() => handleImageClick(item)}
+          image={item.image}
+          tag={item.tag}
+          name={item.name}
+          cardClass={item.cardClass}
+          cardClass2={item.cardClass2}
+          age={item.age}
+        />
+      ))}
+
       {/* khi click vào btn thì sẽ đổi showModal thành true */}
-      <Card
+      {/* <Card
         handleOpen={() => handleImageClick(image001)}
         image={image001.image}
         tag={image001.tag}
@@ -121,7 +136,7 @@ function App() {
         cardClass={image004.cardClass}
         cardClass2={image004.cardClass2}
         age={image004.age}
-      />
+      /> */}
       {/* 
       <Card image={png005} tag="#00005" name="Charmeleon" cardClass='Fire' age={22} />
       <Card image={png006} tag="#00006" name="Charizard" cardClass='Fire' cardClass2="Flying" age={14} />
