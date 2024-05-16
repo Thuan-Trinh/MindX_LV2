@@ -56,16 +56,12 @@ function App() {
   const [showModal, setShowModal] = useState(false);
 
   const handleImageClick = (cardInfo) => {
-    // Lưu thông tin của thẻ được click vào biến state selectedCard
     setSelectedCard(cardInfo);
-    // Hiển thị modal
     setShowModal(true);
   };
 
   const handleCloseModal = () => {
-    // Ẩn modal
     setShowModal(false);
-    // Đặt lại selectedCard về null
     setSelectedCard(null);
   };
 
@@ -79,8 +75,8 @@ function App() {
             <img src={selectedCard.image} alt={selectedCard.tag} />
             <p>{selectedCard.name}</p>
             <div className="detail">
-              <span>{selectedCard.cardClass}</span>
-              {selectedCard.cardClass2 && <span>{selectedCard.cardClass2}</span>}
+              <span className={selectedCard.cardClass}>{selectedCard.cardClass}</span>
+              {selectedCard.cardClass2 && <span className={selectedCard.cardClass2}>{selectedCard.cardClass2}</span>}
             </div>
           </div>
         </Modal>
