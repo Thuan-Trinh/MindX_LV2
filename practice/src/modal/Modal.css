@@ -9,7 +9,7 @@
 
 .modal .content {
     width: 350px;
-    height: 50vh;
+    /* height: 50vh; */
     background-color: white;
     position: absolute;
     top: 50%;
@@ -21,9 +21,10 @@
     justify-content: flex-start;
     align-items: flex-end;
     gap: 24px;
-    padding: 8px;
+    padding: 8px 24px 32px 24px;
 }
-.modal .content img{
+
+.modal .content img {
     width: 50%;
     height: auto;
     background-color: rgba(0, 0, 0, 0.178);
@@ -31,30 +32,34 @@
     padding: 12px;
     transition: transform ease 0.3s;
 }
-.modal .content img:hover{
+
+.modal .content img:hover {
     transform: scale(1.1);
 }
-.card-content{
+
+.card-content {
     display: flex;
     flex-direction: column;
     gap: 12px;
     justify-content: flex-start;
     align-items: center;
 }
-.card-content .detail{
+
+.card-content .detail {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 16px;
 }
-.card-content p{
+
+.card-content p {
     color: black;
-    font-size: 32px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 500;
     margin: 0;
 }
 
-.card-content .detail span{
+.card-content .detail span {
     color: white;
     font-size: 20px;
     font-weight: 500;
@@ -63,24 +68,44 @@
     min-width: 96px;
     text-align: center;
 }
-.Fire{
+
+.Fire {
     color: black;
     background-color: orange;
 }
-.Bug{
+
+.Bug {
     color: white;
     background-color: green;
 }
-.Water{
+
+.Water {
     color: white;
     background-color: rgb(47, 47, 247);
 }
-.Flying{
+
+.Flying {
     color: black;
-    background: linear-gradient(to bottom, #99ccff,#ffcccc)
+    background: linear-gradient(to bottom, #99ccff, #ffcccc)
 }
 
-.Poison{
+.Poison {
     color: white;
     background-color: palevioletred;
+}
+
+input {
+    outline: none;
+    border: none;
+}
+
+input.itemName {
+    color: black;
+    background: none;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+.detail input{
+    padding: 4px 16px;
 }
