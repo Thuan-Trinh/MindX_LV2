@@ -20,6 +20,7 @@ function App() {
     setShowModal(false);
     setSelectedCard(null);
   };
+  //function handle change để thay đổi giá trị trong ô input, và update thông tin value card ban đầu vào giá trị 'name'
   const handleChange = (e) => {
     const { name, value } = e.target;
     setSelectedCard((card) => ({
@@ -27,13 +28,27 @@ function App() {
       [name]: value,
     }));
   };
+
+  // function save để khi save thì lưu thông tin đã thay đổi
+  
   const handleSave = () => {
-    setCards((item) =>
-      item.map((card) =>
-        card.tag === selectedCard.tag ? selectedCard : card
-      )
-    );
-    handleCloseModal();
+    if (selectedCard) {
+      // Tìm chỉ mục của thẻ được chọn
+      const index = cards.findIndex(card => card.tag === selectedCard.tag);
+      
+      // Nếu tìm thấy thẻ
+      if (index !== -1) {
+        // Tạo bản sao của mảng cards
+        const updatedCards = [...cards];
+        
+        // Cập nhật thẻ tại chỉ mục tìm được
+        updatedCards[index] = selectedCard;
+        
+        // Cập nhật trạng thái
+        setCards(updatedCards);
+        handleCloseModal();
+      }
+    }
   };
   return (
     <div className='listCard'>

@@ -16,6 +16,7 @@ const Card = (props) => {
     const [person, setPerson] = useState({
         name: "thuan"
     })
+   
     console.log(props);
     return (
         //Chỉ được trả về 1 thẻ duy nhất, trong thẻ có thẻ chứ không được tách thành 2 thẻ riêng
@@ -26,7 +27,7 @@ const Card = (props) => {
             borderRadius: '12px'
         }}
         >
-            {props.sayHello}
+            {/* {props.sayHello}
             <div className="name">Name: {person.name}</div>
             <div className="age">Age: {props.age}</div>
             <br />
@@ -35,11 +36,16 @@ const Card = (props) => {
             <br />
             <button onClick={addPlus}>Plus</button>
             <button onClick={
-                ()=>{
+                () => {
                     person.name = 'Thuy';
-                    setPerson({...person});
+                    setPerson({ ...person });
                 }
-            }>update name</button>
+            }>update name</button> */}
+
+            <form onSubmit={handleSubmit}>
+                <input type="text" />
+                <button>Submit</button>
+            </form>
         </div>
     );
 };
