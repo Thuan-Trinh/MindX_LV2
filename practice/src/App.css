@@ -1,19 +1,42 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
 .listCard {
+  width: 100%;
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   /* background-color: rgb(164, 164, 249); */
 }
 
 .listCard .card {
   width: 25%;
   padding: 5px;
- 
+
+}
+
+.filter {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 48px;
+}
+
+.filter input.searchField {
+  width: 50%;
+  border: solid 1px black;
+  padding: 8px 12px;
+  border-radius: 8px;
+
+}
+.filter input.itemName{
+  border: none;
+}
+.filter input.itemClass{
+  background: none;
 }
