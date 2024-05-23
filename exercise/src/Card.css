@@ -1,0 +1,83 @@
+.cardList {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.cardList img {
+    width: 100%;
+    background-color: grey;
+    border-radius: 12px;
+}
+
+.cardList .cardClass {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-start;
+    align-items: start;
+    width: 100%;
+}
+
+.cardList .cardClass div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 24px;
+    width: 50%;
+}
+
+.cardList span.tag {
+    display: flex;
+    padding: 4px;
+    background-color: lightgoldenrodyellow;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.itemName {
+    font-size: 32px;
+    font-weight: 700;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Grass {
+    background-color: green;
+    color: white;
+    border-radius: 4px;
+}
+
+.Poison {
+    background-color: red;
+    color: white;
+    border-radius: 4px;
+}
+
+.Fire {
+    background-color: orange;
+    color: white;
+    border-radius: 4px;
+}
+
+.Flying {
+    background-image: linear-gradient(violet, lightblue);
+    color: black;
+    border-radius: 4px;
+}
+
+.Water {
+    background-color: blue;
+    color: white;
+    border-radius: 4px;
+}
+
+.Bug {
+    background-color: grey;
+    color: white;
+    border-radius: 4px;
+}
